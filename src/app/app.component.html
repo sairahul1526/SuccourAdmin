@@ -1,0 +1,98 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">City Name</label>
+                    <input type="text" class="form-control" #name>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <br>
+                <button type="button" class="btn btn-danger pull-right" (click)="submit(name.value)">Submit</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card" *ngIf="succours">
+                    <div class="card-header" data-background-color="red">
+                        <h4 class="title">Succour</h4>
+                    </div>
+                    <div class="card-content">
+                        <table class="table">
+                            <table class="table table-hover">
+                                <thead>
+                                    <th>
+
+                                    </th>
+                                    <th>
+                                        Victims
+                                    </th>
+                                    <th>
+                                        Severity of accident:
+                                    </th>
+                                    <th>
+                                        Type of accident:
+                                    </th>
+                                    <th>
+                                        The condition of Victim(s):
+                                    </th>
+                                    <th>
+                                        Description
+                                    </th>
+                                    <th>
+                                        Location
+                                    </th>
+                                    <th>
+                                        Latitude
+                                    </th>
+                                    <th>
+                                        Longitude
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let succour of succours | async">
+                                        <td>
+                                            <img [src]="succour.image" style="height: 70px">
+                                        </td>
+                                        <td>
+                                            <p>{{ succour.number }}</p>
+                                        </td>
+                                        <td>
+                                            <p>{{ succour.zero }}</p>
+                                        </td>
+                                        <td>
+                                            <p>{{ succour.first }}</p>
+                                        </td>
+                                        <td>
+                                            <p>{{ succour.second }}</p>
+                                        </td>
+                                        <td>
+                                            <p>{{ succour.description }}</p>
+                                        </td>
+                                        <td>
+                                            <p>{{ succour.location }}</p>
+                                        </td>
+                                        <td>
+                                                <p>{{ succour.latitude }}</p>
+                                        </td>
+                                        <td>
+                                                <p>{{ succour.longitude }}</p>
+                                        </td>
+                                        <td>
+                                            <button type="button" (click)="remove(succour)" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs">
+                                                <i class="material-icons">close</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
